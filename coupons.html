@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div>
+    <button class="btn btn-sm btn-outline-dark mb-3" data-bs-toggle="modal" data-bs-target="#AddCoupon">
+        <i class="bi bi-plus"></i> Add Coupon
+    </button>
+    
+    {% block add_coupon %}
+    {% include 'mainapp/components/add-coupon.html' %}
+    {% endblock add_coupon %}
+
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col"> Coupon Serial Number </th>
+                <th scope="col"> Fuel Type </th>
+                <th scope="col"> Coupon Litres </th>
+                <th scope="col"> Receiving Date </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for coupon in coupons %}
+            <tr>
+                <td> {{ coupon.serial_number }} </td>
+                <td> {{ coupon.fuel_type }} </td>
+                <td> {{ coupon.litres }} </td>
+                <td> {{ coupon.receiving_date }} </td>
+                <td>
+                    <a href="#" class="me-4">
+                        <i class="bi bi-pencil text decoration none"></i>
+                    </a>
+                    <a href="{% url 'coupons:delete' coupon.id %}">
+                        <i class="bi bi-trash text-danger text decoration none"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

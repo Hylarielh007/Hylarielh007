@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div>
+    <button class="btn btn-sm btn-outline-dark mb-3" data-bs-toggle="modal" data-bs-target="#AddEmployee">
+        <i class="bi bi-plus"></i> Add Employee
+    </button>
+ 
+    {% block add_employee %}
+    {% include 'mainapp/components/add-employee.html' %}
+    {% endblock add_employee %} 
+
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col"> Employee EC Number </th>
+                <th scope="col"> Employee First Name </th>
+                <th scope="col"> Employee Last Name </th>
+                <th scope="col"> Employee Contact details </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for coupon in coupons %}
+            <tr>
+                <td> {{ coupon.ec_number }} </td>
+                <td> {{ coupon.first_name }} </td>
+                <td> {{ coupon.last_name }} </td>
+                <td> {{ coupon.phone_number }} </td>
+                <td>
+                    <a href="#" class="me-4">
+                        <i class="bi bi-pencil text-decoration-none"></i>
+                    </a>
+                    <a href="{% url 'coupons:delete' employee.id %}">
+                        <i class="bi bi-trash text-danger text-decoration-none"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

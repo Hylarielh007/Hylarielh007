@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+
+{% block navbar %}
+<div>
+    {% include 'components/navbar.html' %}
+</div>
+{% endblock navbar %}
+<div class="container">
+    <div class="mt-5">
+        
+        {% block content %}
+            
+        {% endblock content %}
+            
+    </div>
+</div>
+
+{% endblock main %}
+
+
+
+
+<form method="POST" action="{% url 'add_Coupon' %}">
+    {% csrf_token %}
+    <div class="form-group mb-3">
+        <label>Coupon Serial</label>
+        <input type="text" class="form-control" name="Coupon Serial" placeholder="Enter Coupon Serial Number">
+
+    </div>
+
+    <div class="form-group">
+        <label>Coupon Recepiant</label>
+        <input type="text" class="form-control" name="Employee Full Names" placeholder="Enter Employee Full Names">
+
+    </div>
+
+    <div class="form-group">
+        <label>Employee EC Number</label>
+        <input type="text" class="form-control" name="EC Number" placeholder="Enter EC Number">
+
+    </div>
+
+    <div class="form-group">
+        <label>Coupon Litres</label>
+        <input type="text" class="form-control" name="Coupon Litres" placeholder="Enter Amount in Litres">
+
+    </div>
+
+    <div class="form-group">
+        <label>Type Of Fuel</label>
+        <input type="text" class="form-control" name="Type Of Fuel" placeholder="Enter Fuel Type">
+
+    </div>
+
+    <div class="form-group">
+        <label>Vehicle CC</label>
+        <input type="text" class="form-control" name="Vehicle CC" placeholder="Enter Employee Vehicle CC">
+
+    </div>
+
+    <div class="form-group">
+        <label>Distance to Travel</label>
+        <input type="text" class="form-control" name="Distance to Travel"
+            placeholder="Enter Travelled by Amount of Fuel, per Vehicle CC">
+
+    </div>
+
+    <div class='text-right mt-4'>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

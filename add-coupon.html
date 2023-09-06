@@ -1,0 +1,36 @@
+<div class="modal fade" id="AddCoupon" tabindex="-1" aria-labelledby="AddCouponLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="AddCouponLabel">
+                    Add Coupon
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'coupons:add' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="serial_number" class="form-label"> Serial Number </label>
+                        <input type="text" class="form-control" name="serial_number" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="fuel_type" class="form-label"> Fuel Type </label>
+                        <input type="text" class="form-control" name="fuel_type" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="litres" class="form-label"> Litres </label>
+                        <input type="text" class="form-control" name="litres" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="receiving_date" class="form-label"> Received Date </label>
+                        <input type="date" class="form-control" name="receiving_date" />
+                    </div>
+                    <button type="submit" class="btn btn-outline-dark">
+                        Save changes
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

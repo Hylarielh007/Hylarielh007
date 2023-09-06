@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div>
+    <a href="#" class="btn btn-sm btn-outline-dark mb-3" data-bs-toggle="modal" data-bs-target="#AddVehicle"> 
+        <i class="bi bi-plus"></i> Register Vehicle
+    </a>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col"> Registration Number </th>
+                <th scope="col"> Engine Capacity </th>
+                <th scope="col"> Distance to Travel </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for coupon in coupons %}
+            <tr>
+                <td> {{ coupon.registration_number }} </td>
+                <td> {{ coupon.engine_capacity }} </td>
+                <td> {{ coupon.distance_Travelled }} </td>
+                <td>
+                    <a href="a" class="me-4">
+                        <i class="bi bi-pencil "></i>
+                    </a>
+                    <a href="a">
+                        <i class="bi bi-trash text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

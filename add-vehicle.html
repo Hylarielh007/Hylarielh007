@@ -1,0 +1,32 @@
+<div class="modal fade" id="AddVehicle" tabindex="-1" aria-labelledby="AddVehicleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="AddVehicleLabel">
+                    Add Vehicle
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'vehicles:add' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="registration_number" class="form-label"> EC Number </label>
+                        <input type="text" class="form-control" name="registration_number" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="engine_capacity" class="form-label"> Vehicle CC </label>
+                        <input type="text" class="form-control" name="engine_capacity" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="distance_travelled" class="form-label"> Distance to Travel </label>
+                        <input type="text" class="form-control" name="distance_travelled" />
+                    </div>
+                    <button type="submit" class="btn btn-outline-dark">
+                        Save changes
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
